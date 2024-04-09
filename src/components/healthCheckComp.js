@@ -1,7 +1,7 @@
 // Path: <rootDir>/src/components/healthCheckComp.js
 //
 // Website health check component.
-import React from "react";
+import React from 'react';
 
 /**
  * Health check component to check if the app is running.

@@ -46,11 +46,7 @@ name: GCloud Deploy
 
 on:
   push:
-    branches: [ "production" ]
-  pull_request:
-    branches: [ "production" ]
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+      branches: [ "production" ]
 
 # Note, use environment instead of hard-coded env variables.
 # env:

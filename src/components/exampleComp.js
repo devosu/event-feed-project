@@ -1,7 +1,7 @@
 // Path: <rootDir>/src/components/exampleComp.js
 //
 // Example component for style and test guide.
-import React from "react";
+import React from 'react';
 
 /**
  * Example component that displays a title.
