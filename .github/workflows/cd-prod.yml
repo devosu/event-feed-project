@@ -6,10 +6,10 @@ name: Prod CD
 on:
   push:
     branches:
-      - 'production'
+      - production
   pull_request:
     branches:
-      - 'production'
+      - production
   # Allow manual trigger.
   workflow_dispatch:
   # Schedule auto review prod branch every day.
@@ -21,8 +21,28 @@ permissions:
   pull-requests: read
 
 jobs:
-  call-reusable-workflow:
+  # Main production cd job.
+  prod-cd:
     uses: ./.github/workflows/cd-common.yml
     with:
       branch_name: ${{ github.ref }}
-      actual_deploy: false
+      actual_deploy: false      
+
+  # Report status of the main production cd job.
+  report-status:
+    needs: prod-cd
+    if: ${{ needs.prod-cd.result == 'failure' }}
+    uses: dacbd/create-issue-action@main
+    with:
+      token: ${{ github.token }}
+      title: Production CD check failed on PR ${{ github.event.number }}
+      assignees: Keming,${{ github.actor }}
+      labels: CICD,bug
+      body: |
+        ### Prod CD Failure Report:
+        
+        > Failed run link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+        - **Author:** ${{ github.actor }}
+        - **Branch:** ${{ github.ref }}
+        - **Commit:** ${{ github.sha }}

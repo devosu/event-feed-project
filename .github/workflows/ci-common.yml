@@ -32,7 +32,7 @@ jobs:
           - '20.x'
           - '18.x'
 
-    name: Node ${{ matrix.node }} - ${{ matrix.arch }} on ${{ matrix.os }}
+    name: Node ${{ matrix.node }}-${{ matrix.arch }} on ${{ matrix.os }}
     steps:
 
       # Checkout src code and setup node.
