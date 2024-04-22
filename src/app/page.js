@@ -12,10 +12,10 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import 'material-symbols/rounded.css';
 
+// Local imports.
 import logo from '@app/logo.png';
 import EventCard from '@components/eventCard';
 import { db } from '@firebase/firebase';
-// Local imports.
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -70,6 +70,7 @@ export default function Homepage() {
   return (
     <main>
       <div className="main-header">
+        {/* Replace with your logo */}
         <Image
           src={logo}
           alt="event-feed-project logo"
@@ -77,14 +78,18 @@ export default function Homepage() {
           width={150}
           height={150}
         />
-        <div class="input-container">
-          <span class="material-symbols-rounded search-icon">search</span>
+
+        <div className="input-container">
+          <span className="material-symbols-rounded search-icon">search</span>
           <input
             type="text"
-            class={inputClassName.length == 0 ? 'event-search' : inputClassName}
+            className={
+              inputClassName.length == 0 ? 'event-search' : inputClassName
+            }
             placeholder="Search Events"
           ></input>
         </div>
+
         <button
           onClick={toggleAuth}
           className={
@@ -94,7 +99,9 @@ export default function Homepage() {
           {isSignedIn ? 'Sign Out' : 'Sign In'}
         </button>
       </div>
-      <div class="events-grid">{events}</div>
+
+      {/* Latest events are rendered in a grid here. */}
+      <div className="events-grid">{events}</div>
     </main>
   );
 }

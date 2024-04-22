@@ -10,7 +10,10 @@ const createJestConfig = nextJest({
   dir: './',
 });
 
-// Add any custom config to be passed to Jest
+// Add any custom config to be passed to Jest.
+// NOTE: jsdom is imported from the jest-environment-jsdom module,
+// jest-environment-jsdom depends on deprecated abab and domexception libraries.
+// No fix is available yet, so we have to use the deprecated libraries.
 const config = {
   testEnvironment: 'jsdom',
   collectCoverage: true,

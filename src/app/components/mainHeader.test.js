@@ -1,34 +1,34 @@
-// ./src/app/page.test.js
+// ./src/app/components/mainHeader.test.js
 //
-// Unit tests for Homepage.
+// Unit tests for MainHeader used for HomePage.
 
 // Essential imports.
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-// Page imports.
-import Homepage from './page';
+// Local imports.
+import MainHeader from './mainHeader';
 
-describe('Homepage', () => {
+describe('MainHeader', () => {
   it('renders without crashing', () => {
-    const { container } = render(<Homepage />);
+    const { container } = render(<MainHeader />);
     expect(container).toBeTruthy();
   });
 
-  it('renders correct static fields', () => {
-    render(<Homepage />);
+  it('renders correct elements', () => {
+    render(<MainHeader />);
 
-    // Check for static elements (logo, search bar, and events.)
+    // Check for static elements (logo, search bar, and button.)
     expect(screen.getByAltText('event-feed-project logo')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Search Events')).toBeInTheDocument();
-    expect(screen.getByRole('grid')).toBeInTheDocument();
+    expect(screen.getByRole('button')).toBeInTheDocument();
   });
 
-  it('renders correct signin/out button', () => {
+  it('renders a funcitoning signin/out button', () => {
     // Mock the toggleAuth function.
     const mockToggleAuth = jest.fn();
-    render(<Homepage toggleAuth={mockToggleAuth} />);
+    render(<MainHeader toggleAuth={mockToggleAuth} />);
 
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
@@ -44,12 +44,4 @@ describe('Homepage', () => {
     expect(mockToggleAuth).toHaveBeenCalledTimes(2);
     expect(button).toHaveTextContent('Sign In');
   });
-
-  // it('renders correct dynamic fields', () => {
-  //   render(<Homepage />);
-
-  //   // Tests for event cards here.
-  // });
 });
-
-// Add more tests as project progresses.
