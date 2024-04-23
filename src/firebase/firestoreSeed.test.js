@@ -6,10 +6,10 @@ import { describe, expect, it } from '@jest/globals';
 import { doc, getDoc } from 'firebase/firestore';
 
 // Firestore connection import.
-import { db } from './firebase';
+import { db } from './firebaseInit';
 
 // Testing module imports.
-import { addEvent } from './firestore';
+import { addEvent } from './firestoreCRUD';
 
 describe('Firestore database operations', () => {
   // Set up test event data for CRUD operations.

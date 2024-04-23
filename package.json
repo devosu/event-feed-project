@@ -23,7 +23,9 @@
     "prereview": "echo 'Starting automated format, lint, and test checks...'",
     "review": "npm-run-all biome-fix test-jest test-playwright",
     "postreview": "echo '...Congratulations! All automated checks passed! Ready to commit.'",
-    "test-jest": "jest",
+    "test-jest": "jest ./src",
+    "test-jest-firebase": "jest ./src/firebase",
+    "test-jest-components": "jest ./src/app/components",
     "test-playwright": "echo 'Playwright tests not implemented yet.'",
     "biome-fix": "biome check --apply-unsafe .",
     "biome": "biome check ."

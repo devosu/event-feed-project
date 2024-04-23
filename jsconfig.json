@@ -1,12 +1,24 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"],
-      "@app/*": ["./src/app/*"],
-      "@api/*": ["./src/app/api/*"],
-      "@components/*": ["./src/app/components/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@firebase/*": ["./src/firebase/*"]
-    }
-  }
+      "@/*": [
+        "./src/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@api/*": [
+        "./src/app/api/*"
+      ],
+      "@firebase/*": [
+        "./src/firebase/*"
+      ],
+      "@components/*": [
+        "./src/app/components/*"
+      ],
+    },
+  },
 }

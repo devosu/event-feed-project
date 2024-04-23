@@ -6,7 +6,7 @@
 import { addDoc, collection } from 'firebase/firestore';
 
 // Local imports.
-import { db } from './firebase';
+import { db } from './firebaseInit';
 
 /**
  * Add an event to the Firestore database.

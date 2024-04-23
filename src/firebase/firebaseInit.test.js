@@ -17,9 +17,11 @@ jest.mock('firebase/app', () => ({
 
 // 1.2. Mock the firebase/auth module.
 // const mockInitializeAuth = jest.fn().mockReturnValue('mockAuth');
-// jest.mock('firebase/auth', () => ({
-//   initializeAuth: mockInitializeAuth
-// }));
+const mockGetAuth = jest.fn().mockReturnValue('mockAuth');
+jest.mock('firebase/auth', () => ({
+  // initializeAuth: mockInitializeAuth
+  getAuth: mockGetAuth,
+}));
 
 // 1.3. Mock the firebase/database module.
 // const mockGetDatabase = jest.fn().mockReturnValue('mockDB');
@@ -55,7 +57,7 @@ describe('Firebase service setup and export', () => {
       // 2.1. Test the app initialization.
       // Scenario: mockGetApps returns an empty array.
       mockGetApps.mockImplementation(() => []);
-      const { app } = require('./firebase');
+      const { app } = require('./firebaseInit');
       expect(mockInitializeApp).toHaveBeenCalled();
       expect(app).toBeDefined();
     });
@@ -65,7 +67,7 @@ describe('Firebase service setup and export', () => {
     jest.isolateModules(() => {
       // Scenario: mockGetApps returns a non-empty array.
       mockGetApps.mockImplementation(() => [{}]);
-      const { app } = require('./firebase');
+      const { app } = require('./firebaseInit');
       expect(mockInitializeApp).not.toHaveBeenCalled();
       expect(app).toBeDefined();
     });
@@ -80,6 +82,16 @@ describe('Firebase service setup and export', () => {
   //   });
   // });
 
+  it('initializes the auth service', () => {
+    // 2.2. Test the auth service initialization.
+    jest.isolateModules(() => {
+      const { app, auth } = require('./firebaseInit');
+      expect(mockGetAuth).toHaveBeenCalled();
+      expect(mockGetAuth).toHaveBeenCalledWith(app);
+      expect(auth).toBe('mockAuth');
+    });
+  });
+
   // it('initializes the real-time database', () => {
   //   // 2.3. Test the real-time database initialization.
   //   jest.isolateModules(() => {
@@ -93,7 +105,7 @@ describe('Firebase service setup and export', () => {
   it('initializes the Firestore database', () => {
     // 2.4. Test the Firestore database initialization.
     jest.isolateModules(() => {
-      const { app, db } = require('./firebase');
+      const { app, db } = require('./firebaseInit');
       expect(mockGetFirestore).toHaveBeenCalled();
       expect(mockGetFirestore).toHaveBeenCalledWith(app);
       expect(db).toBe('mockFirestore');

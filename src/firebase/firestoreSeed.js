@@ -6,7 +6,7 @@
 import { describe, expect, it } from '@jest/globals';
 
 // Local imports.
-import { testEvents } from './fireseed';
+import { testEvents } from './firestoreSeed';
 
 const TOTAL_LEN = 20;
 describe('Firestore seeding exports', () => {

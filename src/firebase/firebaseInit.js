@@ -3,6 +3,7 @@
 // Setup the Firebase app and services for the application.
 
 import { getApps, initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 // import { initializeAuth } from 'firebase/auth';
 // import { getDatabase } from 'firebase/database';
 import { getFirestore } from 'firebase/firestore';
@@ -25,11 +26,12 @@ export function createFirebaseInstance() {
   const app = getApps().length
     ? getApps()[0]
     : initializeApp(firebaseProdConfig);
+  const auth = getAuth(app);
   const db = getFirestore(app);
 
-  return { app, db };
+  return { app, auth, db };
 }
 
 // Backwards compatible firebase service export.
 const defaultFirebaseInstance = createFirebaseInstance();
-export const { app, db } = defaultFirebaseInstance;
+export const { app, auth, db } = defaultFirebaseInstance;
