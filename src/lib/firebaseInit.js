@@ -1,4 +1,4 @@
-// ./firebase/firebase.js
+// ./firebase/firebaseInit.js
 //
 // Setup the Firebase app and services for the application.
 

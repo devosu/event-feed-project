@@ -1,4 +1,4 @@
-// ./src/firebase/firestore.js
+// ./src/firebase/firestoreCRUD.js
 //
 // Firestore database operations.
 
@@ -6,26 +6,32 @@
 import { addDoc, collection } from 'firebase/firestore';
 
 // Local imports.
-import { db } from './firebaseInit';
+import { db } from '@lib/firebaseInit';
 
-/**
- * Add an event to the Firestore database.
- *
- * @param {Object} eventData - name, date, location, and club name of the event.
- */
-export async function addEvent(eventData) {
+export async function addEvent(newEvent) {
   console.log('beginning creation of document');
+
+  // // Destructure the event object, provide defaults.
+  // const {
+  //   eventImageURL = '/images/default_event_image.png',
+  //   eventName = 'Default Event Name',
+  //   eventDate = 'Default Event Date',
+  //   eventLocation = 'OSU Campus',
+  //   clubIconURL = '/images/default_club_icon.png',
+  //   clubName = 'Default Club Name',
+  // } = newEvent;
+
   try {
     const eventsRef = collection(db, 'events');
-    const docRef = await addDoc(eventsRef, eventData);
+    const docRef = await addDoc(eventsRef, newEvent);
+
     console.log('event added successfully.');
     // Return the auto-generated ID of the event.
     return docRef.id;
-
+  } catch (err) {
     // Gracefully handle error adding the event fails.
-  } catch (e) {
     console.log('There was an error adding the document');
-    console.error(`Error adding document: ${e}`);
+    console.error(`Error adding document: ${err}`);
   }
 }
 

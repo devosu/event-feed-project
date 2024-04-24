@@ -1,7 +1,8 @@
-// ./src/firebase/firestore.test.js
+// ./src/firebase/firestoreCRUD.test.js
 //
 // Unit tests for Firestore database op functions.
 
+// Essential imports.
 import { describe, expect, it } from '@jest/globals';
 import { doc, getDoc } from 'firebase/firestore';
 

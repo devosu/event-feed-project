@@ -13,8 +13,8 @@
       "@api/*": [
         "./src/app/api/*"
       ],
-      "@firebase/*": [
-        "./src/firebase/*"
+      "@lib/*": [
+        "./src/lib/*"
       ],
       "@components/*": [
         "./src/app/components/*"

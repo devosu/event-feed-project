@@ -1,4 +1,4 @@
-// Path: ./firebase/firebase.test.js
+// Path: ./firebase/firebaseInit.test.js
 //
 // Unit tests for Firebase setup and export.
 

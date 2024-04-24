@@ -1,17 +1,22 @@
-// ./src/app/components/mainHeader.js
+// ./src/app/components/MainHeader.js
 //
 // MainHeader component for the HomePage.
 
 // Essential imports.
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 // Local imports.
-import * as Auth from '@firebase/firebaseAuth'
-import SearchBar from '@components/SearchBar';
 import AuthButton from '@components/AuthButton';
+import SearchBar from '@components/SearchBar';
+import { signInHandler, signOutHandler } from '@lib/firebaseAuth';
 
 export default function MainHeader() {
+  const authHandler = {
+    signInHandler,
+    signOutHandler,
+  };
+
   return (
     <header className="main-header">
       <Image
@@ -22,7 +27,7 @@ export default function MainHeader() {
         height={150}
       />
       <SearchBar />
-      <AuthButton authHandler={Auth} />
+      <AuthButton authHandler={authHandler} />
     </header>
   );
 }

@@ -5,9 +5,9 @@
 // Essential imports.
 import React from 'react';
 
+import EventGrid from '@components/EventGrid';
 // Local imports.
 import MainHeader from '@components/MainHeader';
-import EventGrid from '@components/EventGrid';
 import './globals.css';
 
 /**

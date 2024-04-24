@@ -12,17 +12,16 @@ import './EventCard.css';
 export default function EventCard({ event }) {
   // Destructure the event object for easier access to its properties
   const {
-    eventImageURL = "/images/default_event_image.png",
-    eventName = "Default Event Name",
-    eventDate = "Default Event Date",
-    eventLocation = "OSU Campus",
-    clubIconURL = "/images/default_club_icon.png",
-    clubName = "Default Club Name",
+    eventImageURL = '/images/default_event_image.png',
+    eventName = 'Default Event Name',
+    eventDate = 'Default Event Date',
+    eventLocation = 'OSU Campus',
+    clubIconURL = '/images/default_club_icon.png',
+    clubName = 'Default Club Name',
   } = event;
 
   return (
     <div className="event-card">
-
       {/* Image (poster/flyer) of the event. */}
       <Image
         src={eventImageURL}

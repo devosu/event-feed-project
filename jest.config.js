@@ -34,6 +34,7 @@ const config = {
   ],
   moduleNameMapper: {
     '^src/(.*)$': '<rootDir>/src/$1',
+    '^@lib/(.*)$': '<rootDir>/src/lib/$1',
   },
   modulePathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules'],
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
