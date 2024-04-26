@@ -34,9 +34,24 @@ const config = {
   ],
   moduleNameMapper: {
     '^src/(.*)$': '<rootDir>/src/$1',
+
     '^@lib/(.*)$': '<rootDir>/src/lib/$1',
+    '^@app/(.*)$': '<rootDir>/src/app/$1',
+    '^@api/(.*)$': '<rootDir>/src/api/$1',
+    '^@utils/(.*)$': '<rootDir>/src/utils/$1',
+    '^@styles/(.*)$': '<rootDir>/src/styles/$1',
+    '^@components/(.*)$': '<rootDir>/src/components/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules'],
+  modulePathIgnorePatterns: [
+    '<rootDir>/dist',
+    '<rootDir>/.next/',
+    '<rootDir>/public',
+    '<rootDir>/.unused',
+    '<rootDir>/cypress',
+    '<rootDir>/.github',
+    '<rootDir>/coverage',
+    '<rootDir>/node_modules',
+  ],
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 };

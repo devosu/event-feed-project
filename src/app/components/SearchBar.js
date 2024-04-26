@@ -8,6 +8,9 @@ import React from 'react';
 // Third-party Imports.
 import 'material-symbols/rounded.css';
 
+/**
+ * @returns {React.ReactElement} The SearchBar component.
+ */
 export default function SearchBar() {
   return (
     <div className="input-container">

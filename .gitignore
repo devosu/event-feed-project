@@ -2,6 +2,8 @@
 
 # personal dev artifacts
 .tmpfiles
+.unused
+.nvmrc
 
 # local env cache
 .swc
